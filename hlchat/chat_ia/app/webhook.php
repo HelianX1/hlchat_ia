@@ -20,8 +20,13 @@ $apikey = $data['apikey'] ?? null;
 file_put_contents('webhook_log.txt', $conversation,  FILE_APPEND);
 $chat = new chat_ia();
 
-if ($fromMe == false) {
+if ($fromMe == false && $conversation != null) {
     $chat->salvarConversa($remoteJid, $conversation, 'false', $instance, $server_url, $apikey);
-
-}
-?>
+    sleep(10);
+    $mensagem = $chat->mensagemNaoRespondida($remoteJid,$instance, $server_url, $apikey);
+    $estorico = $chat->estoricoDeConversas($remoteJid);
+    $resposta = $chat->ia($mensagem, 'vc e um vendedor de telas', $estorico);
+    file_put_contents('resposta.txt', $mensagem,  FILE_APPEND);
+    $chat->responder($resposta,$remoteJid, $instance, $server_url, $apikey);
+    $chat->salvarConversa($remoteJid, $conversation, $resposta, $instance, $server_url, $apikey);
+}?>
