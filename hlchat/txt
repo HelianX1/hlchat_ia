@@ -1,0 +1,57 @@
+[
+  {
+    "headers": {
+      "host": "n8n-n8n.lzbrix.easypanel.host",
+      "user-agent": "axios/1.7.9",
+      "content-length": "1014",
+      "accept-encoding": "gzip, compress, deflate, br",
+      "content-type": "application/json",
+      "x-forwarded-for": "172.18.0.1",
+      "x-forwarded-host": "n8n-n8n.lzbrix.easypanel.host",
+      "x-forwarded-port": "443",
+      "x-forwarded-proto": "https",
+      "x-forwarded-server": "a8231dd07e09",
+      "x-real-ip": "172.18.0.1"
+    },
+    "params": {},
+    "query": {},
+    "body": {
+      "event": "messages.upsert",
+      "instance": "yure",
+      "data": {
+        "key": {
+          "remoteJid": "120363042486168330@g.us",
+          "fromMe": false,
+          "id": "C5D6B540A2343966F9536A5208CB5CCD",
+          "participant": "559884171322@s.whatsapp.net"
+        },
+        "pushName": "Zzz",
+        "status": "DELIVERY_ACK",
+        "message": {
+          "messageContextInfo": {
+            "messageSecret": "KA1e2dL+WmZzhGD1BwJCsW9IaEz5pWVgWyJfH9A0tEM="
+          },
+          "conversation": "🛵 *Alugo moto zero km*\n\n👇🏻 *entre no grupo para mais informações*\n https://chat.whatsapp.com/J4gF8QMYJoTILMYBON7pz8"
+        },
+        "contextInfo": {
+          "expiration": 86400,
+          "disappearingMode": {
+            "initiator": "CHANGED_IN_CHAT",
+            "trigger": "UNKNOWN"
+          }
+        },
+        "messageType": "conversation",
+        "messageTimestamp": 1738860273,
+        "instanceId": "8dfa5cac-89d8-4da0-9705-fb1f03bf8de3",
+        "source": "android"
+      },
+      "destination": "https://n8n-n8n.lzbrix.easypanel.host/webhook/3c6b7170-5c41-4ada-850f-d5dd079f218b",
+      "date_time": "2025-02-06T13:44:34.228Z",
+      "sender": "559885444494@s.whatsapp.net",
+      "server_url": "https://evolution-evolution-api.lzbrix.easypanel.host",
+      "apikey": "DD073E83B4A4-4814-9812-6C9639C7B5FC"
+    },
+    "webhookUrl": "https://n8n-n8n.lzbrix.easypanel.host/webhook/3c6b7170-5c41-4ada-850f-d5dd079f218b",
+    "executionMode": "production"
+  }
+]
