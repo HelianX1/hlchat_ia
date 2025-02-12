@@ -23,10 +23,14 @@ $chat = new chat_ia();
 if ($fromMe == false && $conversation != null) {
     $chat->salvarConversa($remoteJid, $conversation, 'false', $instance, $server_url, $apikey);
     sleep(10);
+    $verificarMensagemPararesponder = $chat->verificarRespostaFalse($remoteJid);
+    if ($verificarMensagemPararesponder == true){
     $mensagem = $chat->mensagemNaoRespondida($remoteJid,$instance, $server_url, $apikey);
     $estorico = $chat->estoricoDeConversas($remoteJid);
     $resposta = $chat->ia($mensagem, 'vc e um vendedor de telas', $estorico);
     file_put_contents('resposta.txt', $mensagem,  FILE_APPEND);
     $chat->responder($resposta,$remoteJid, $instance, $server_url, $apikey);
     $chat->salvarConversa($remoteJid, $conversation, $resposta, $instance, $server_url, $apikey);
+    $chat->excluirRespostasTrue($remoteJid);
+    }
 }?>

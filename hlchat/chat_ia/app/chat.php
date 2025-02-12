@@ -145,4 +145,21 @@ class chat_ia
 
         curl_close($curl);
     }
+    public function verificarRespostaFalse($contato)
+    {
+        $sql = "SELECT COUNT(*) as total FROM chat_ia WHERE resposta = 'false' AND contato = :contato";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindParam(':contato', $contato);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'] > 0;
+    }
+    public function excluirRespostasTrue($contato)
+    {
+        $sql = "DELETE FROM chat_ia WHERE resposta = 'true' AND contato = :contato";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindParam(':contato', $contato);
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
 }?>
